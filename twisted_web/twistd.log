@@ -1,0 +1,36 @@
+2017-02-14T12:48:38-0600 [twisted.scripts._twistd_unix.UnixAppLogger#info] twistd 16.4.1 (/usr/bin/python 2.7.12) starting up.
+2017-02-14T12:48:38-0600 [twisted.scripts._twistd_unix.UnixAppLogger#info] reactor class: twisted.internet.epollreactor.EPollReactor.
+2017-02-14T12:48:38-0600 [-] Site starting on 8538
+2017-02-14T12:48:38-0600 [twisted.web.server.Site#info] Starting factory <twisted.web.server.Site instance at 0x7f38c6ffa998>
+2017-02-14T12:48:52-0600 [twisted.python.log#info] 127.0.0.1 - - [14/Feb/2017:18:48:51 +0000] "GET / HTTP/1.1" 200 2732 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36"
+2017-02-14T12:48:52-0600 [twisted.python.log#info] 127.0.0.1 - - [14/Feb/2017:18:48:51 +0000] "GET /favicon.ico HTTP/1.1" 404 145 "http://localhost:8538/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36"
+2017-02-14T12:49:08-0600 [twisted.python.log#info] 127.0.0.1 - - [14/Feb/2017:18:49:08 +0000] "GET /virtual_host.rpy HTTP/1.1" 500 328 "http://localhost:8538/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36"
+2017-02-14T12:49:57-0600 [twisted.python.log#info] 127.0.0.1 - - [14/Feb/2017:18:49:56 +0000] "GET / HTTP/1.1" 200 2730 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36"
+2017-02-14T12:50:00-0600 [_GenericHTTPChannelProtocol,0,127.0.0.1] Unhandled Error
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/dist-packages/twisted/protocols/basic.py", line 571, in dataReceived
+	    why = self.lineReceived(line)
+	  File "/usr/lib/python2.7/dist-packages/twisted/web/http.py", line 1752, in lineReceived
+	    self.allContentReceived()
+	  File "/usr/lib/python2.7/dist-packages/twisted/web/http.py", line 1845, in allContentReceived
+	    req.requestReceived(command, path, version)
+	  File "/usr/lib/python2.7/dist-packages/twisted/web/http.py", line 766, in requestReceived
+	    self.process()
+	--- <exception caught here> ---
+	  File "/usr/lib/python2.7/dist-packages/twisted/web/server.py", line 185, in process
+	    resrc = self.site.getResourceFor(self)
+	  File "/usr/lib/python2.7/dist-packages/twisted/web/server.py", line 791, in getResourceFor
+	    return resource.getChildForRequest(self.resource, request)
+	  File "/usr/lib/python2.7/dist-packages/twisted/web/resource.py", line 98, in getChildForRequest
+	    resource = resource.getChildWithDefault(pathElement, request)
+	  File "/usr/lib/python2.7/dist-packages/twisted/web/resource.py", line 201, in getChildWithDefault
+	    return self.getChild(path, request)
+	  File "/usr/lib/python2.7/dist-packages/twisted/web/static.py", line 298, in getChild
+	    return resource.IResource(processor(fpath.path, self.registry))
+	  File "/usr/lib/python2.7/dist-packages/twisted/web/script.py", line 64, in ResourceScript
+	    execfile(path, glob, glob)
+	  File "/usr/lib/python2.7/dist-packages/twisted/python/compat.py", line 216, in execfile
+	    code = compile(source, filename, "exec")
+	exceptions.SyntaxError: invalid syntax (hostv.rpy, line 3)
+	
+2017-02-14T12:50:00-0600 [twisted.python.log#info] 127.0.0.1 - - [14/Feb/2017:18:49:59 +0000] "GET /hostv.rpy HTTP/1.1" 500 6938 "http://localhost:8538/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36"
